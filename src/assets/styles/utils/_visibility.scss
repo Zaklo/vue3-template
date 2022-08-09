@@ -1,0 +1,22 @@
+.u-hidden {
+  visibility: hidden;
+}
+
+.u-visible {
+  visibility: visible;
+}
+
+
+@each $break, $values in $breakpoints {
+  .hide-#{$break} {
+    @include media('<=#{$break}') {
+      display: none;
+    }
+  }
+
+  .show-#{$break} {
+    @include media('>=#{$break}') {
+      display: none;
+    }
+  }
+}

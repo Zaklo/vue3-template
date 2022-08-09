@@ -1,0 +1,71 @@
+:root {
+  --column-count: 6;
+  --column-gap: 30px;
+  $max-width: min(100vw, var(--content-max-width));
+  --column-width: calc((#{$max-width} - (var(--column-count) * var(--column-gap))) / var(--column-count));
+
+  @include media('>=tablet') {
+    --column-count: 8;
+  }
+
+  @include media('>=desktop') {
+    --column-count: 12;
+  }
+}
+
+.o-grid {
+  column-gap: var(--column-gap);
+  display: grid;
+  grid-template-columns: repeat(var(--column-count), 1fr);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1350px;
+}
+
+.o-column {
+  grid-column: span 6;
+  @include media('<tablet') {
+    margin-bottom: 40px;
+  }
+
+  &-medium {
+    grid-column: span 4;
+    @include media('<tablet') {
+      margin-bottom: 70px;
+    }
+  }
+
+  &-big {
+    grid-column: span 10;
+  }
+}
+
+.o-cardGrid {
+  margin: 140px auto;
+  display: grid;
+  grid-template-columns: repeat(var(--column-count), 1fr);
+  --gap: var(--column-gap);
+  max-width: var(--content-max-width);
+  gap: var(--gap);
+  grid-auto-rows: minmax(90px, 395px);
+
+  @include media('<tablet') {
+    margin: 90px auto;
+    grid-auto-rows: minmax(90px, 280px);
+  }
+
+  :nth-child(odd) {
+    grid-column: 1/7;
+    justify-items: end;
+  }
+
+  :nth-child(even) {
+    grid-column: 7/12;
+    justify-items: start;
+
+    @include media('<tablet') {
+      grid-column: 1/7;
+    }
+  }
+}
+

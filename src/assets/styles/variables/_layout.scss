@@ -1,0 +1,19 @@
+@import "../resources";
+
+:root {
+  --border-padding: 87px;
+
+  @include media('>=desktop') {
+    --content-max-width: 1300px;
+    --border-padding: 115px;
+  }
+
+  @include media('>=large-desktop') {
+    --content-max-width: 1300px;
+    --border-padding: 120px;
+  }
+
+  @include media('<=tablet') {
+    --border-padding: 28px;
+  }
+}

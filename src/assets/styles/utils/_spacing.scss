@@ -1,0 +1,29 @@
+.u-bottomSpace {
+  margin-bottom: 70px;
+
+  @include media('<tablet') {
+    margin-bottom: 30px;
+  }
+}
+
+.u-auto {
+  margin: auto;
+}
+
+.u-topAuto {
+  margin-top: auto;
+}
+
+.u-mobileBottomSpace {
+  @include media('<tablet') {
+    margin-bottom: 40px;
+  }
+}
+
+.u-smallBottomSpace {
+  margin-bottom: 40px;
+}
+
+.u-topSpace {
+  padding-top: 40px;
+}
